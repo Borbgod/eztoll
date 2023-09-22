@@ -9,7 +9,6 @@ vehicle_type = input()
 
 weekend = weekend.upper()
 state = state.upper()
-vehicle_type = vehicle_type.upper()
 
 # variable info for toll and surcharges
 
@@ -72,7 +71,7 @@ else:
 
 if state == 'MI':
     toll = 0.05
-    print(f'Info: {hour, weekend, state}\n{state} surcharge: ${oos_surcharge:.2f}')
+    print(f'Info: {hour, weekend, state}')
 elif not state == 'IL':
     toll += oos_surcharge
     print(f'Info: {hour, weekend, state}\n{state} surcharge: ${oos_surcharge:.2f}')
@@ -87,14 +86,15 @@ if vehicle_type == 'Car' and state == 'IL' and weekend == False and hour == 4:
 elif vehicle_type == 'Car':
     pass
     if state == 'MI':
-        new_toll = 0.05
+        toll = 0.05
     print(f'Total: ${toll:.2f}')
+elif vehicle_type == 'Truck' and state == 'MI':
+    toll = 0.05
+    print(f'Toll: ${toll:.2f}')
 elif vehicle_type == 'Truck':
     toll += truck_surcharge
     print(f'{vehicle_type} surcharge: ${truck_surcharge:.2f}\nTotal: ${toll:.2f}')
-    if state == 'MI':
-        toll = 0.05
-        print(f'Toll: ${toll:.2f}')
+    print(f'Toll: ${toll:.2f}')
 elif vehicle_type == 'EV' and state == 'MI':
     toll = 0.05
     print(f'Toll: ${toll:.2f}')
@@ -119,3 +119,7 @@ if hour < 0 or hour > 23:
 
 if state not in states:
     print(f'Oops! State must be IL, OH, IN, WI or MI.')
+
+addons = (oos_surcharge, truck_surcharge, ev_discount)
+if addons:
+    print()
