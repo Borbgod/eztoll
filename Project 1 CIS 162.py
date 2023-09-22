@@ -100,7 +100,6 @@ if oos_surcharge > 0:
         print(f'Total: ${total:.2f}')
 if truck_surcharge > 0:
     print(f'{vehicle_type} surcharge: ${truck_surcharge:.2f}\nTotal: ${total:.2f}')
-    print(f'Total: ${total:.2f}')
 elif ev_discount > 0:
     print(f'{vehicle_type} discount: ${ev_discount:.2f}')
     print(f'Total: ${total:.2f}')
